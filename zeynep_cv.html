@@ -429,10 +429,10 @@
                         <ul class="bullet-list mb-4 px-2">
                             <li>HeyGen aracı kullanılarak eğitim amaçlı, avatar tabanlı video içeriklerinin üretilmesi.</li>
                         </ul>
-                        <video controls class="w-full max-w-sm mx-auto rounded-lg shadow-sm border border-slate-200 hover:shadow-md transition-shadow" onclick="event.stopPropagation()">
-                            <source src="Ders4 Konu3 Notlandırma.mp4" type="video/mp4">
-                            Tarayıcınız video oynatmayı desteklemiyor.
-                        </video>
+                        <!-- YouTube Embed (Performans ve Kota Dostu) -->
+                        <div class="w-full max-w-sm mx-auto rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow relative" style="padding-top: 56.25%;" onclick="event.stopPropagation()">
+                            <iframe src="https://www.youtube.com/embed/G9HL2Xn-S9A?rel=0" class="absolute top-0 left-0 w-full h-full" title="Ders4 Konu3 Notlandırma" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
                         <p class="text-center text-[11px] text-slate-700 mt-2 font-medium">Proje kapsamındaki örnek video içerik (Notlandırma Modülü)</p>
                     </div>
                 </div>
@@ -601,6 +601,13 @@
                 content.classList.add('hidden');
                 icon.style.transform = 'rotate(0deg)';
                 if(textEl) textEl.innerText = "Detayları İncele";
+                
+                // Kapatıldığında YouTube videosunu durdur
+                const iframe = content.querySelector('iframe');
+                if (iframe) {
+                    const iframeSrc = iframe.src;
+                    iframe.src = iframeSrc;
+                }
             }
         }
 
